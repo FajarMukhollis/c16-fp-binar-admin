@@ -1,10 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">flywithme_admin</string>
     <string name="splash_screen">this image splash screen</string>
     <string name="airplane">this image airplane</string>
     <string name="data_customer">Data Customer</string>
     <string name="empty_email">Email Empty</string>
-    <string name="not_email">Not Email</string>
     <string name="empty_pass">Password Empty</string>
     <string name="failed_login">Login Failed</string>
     <string name="not_found">Email or Password Not Found</string>
