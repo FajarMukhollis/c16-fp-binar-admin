@@ -21,67 +21,41 @@
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/airplane"/>
 
-        <LinearLayout
-            android:id="@+id/con_dataCustomer"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_dataCustomer"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="400dp"
-            android:background="@drawable/container"
+            android:background="@drawable/btn_style"
+            android:text="@string/data_customer"
+            style="@style/ButtonStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"/>
 
-            <TextView
-                android:id="@+id/tv_dataCustomer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/data_customer"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/con_dataTakeOff"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_dataFlight"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/container"
+            android:background="@drawable/btn_style"
+            style="@style/ButtonStyle"
+            android:text="@string/data_flight"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/con_dataCustomer">
+            app:layout_constraintTop_toBottomOf="@+id/btn_dataCustomer"/>
 
-            <TextView
-                android:id="@+id/tv_dataTakeOff"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/data_customer"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/con_payment"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_historyPayment"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:background="@drawable/container"
             android:layout_marginTop="20dp"
+            android:background="@drawable/btn_style"
+            style="@style/ButtonStyle"
+            android:text="@string/data_history_payment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/con_dataTakeOff">
-
-            <TextView
-                android:id="@+id/tv_payment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/data_customer"
-                android:textSize="18sp" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/btn_dataFlight"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
