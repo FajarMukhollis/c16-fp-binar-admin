@@ -13,4 +13,5 @@
     <string name="id_user">ID User</string>
     <string name="first_name">first name</string>
     <string name="last_name">last name</string>
+    <string name="this_image">this image</string>
 </resources>

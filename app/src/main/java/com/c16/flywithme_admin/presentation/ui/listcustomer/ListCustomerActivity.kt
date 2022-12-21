@@ -1,61 +1,81 @@
 package com.c16.flywithme_admin.presentation.ui.listcustomer
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.c16.flywithme_admin.data.remote.ApiConfig
 import com.c16.flywithme_admin.data.response.CustomerResponse
 import com.c16.flywithme_admin.databinding.ActivityListCustomerBinding
 import com.c16.flywithme_admin.presentation.adapter.customer.ListCustomerAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ListCustomerActivity : AppCompatActivity() {
     private lateinit var _binding: ActivityListCustomerBinding
-    private lateinit var recyclerViewAdapter : ListCustomerAdapter
-    private lateinit var viewModel: ListCustomerViewModel
+    private lateinit var listCustomerAdapter: ListCustomerAdapter
+    private var TAG: String = "ListCustomerActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityListCustomerBinding.inflate(layoutInflater)
         setContentView(_binding.root)
+        supportActionBar!!.title = "List of Customers"
 
         initRecyclerView()
-        initViewModel()
+        getDataFromApi()
 
     }
 
-    private fun initRecyclerView(){
+    private fun getDataFromApi() {
+        showLoading(true)
+        val retroInstance = ApiConfig.getApiService()
+        val call = retroInstance.getlistCustomer()
+        call.enqueue(object : Callback<CustomerResponse> {
+            override fun onResponse(
+                call: Call<CustomerResponse>,
+                response: Response<CustomerResponse>
+            ) {
+                showLoading(false)
+                if (response.isSuccessful) {
+                    showData( response.body()!! )
+                }
+            }
+
+            override fun onFailure(call: Call<CustomerResponse>, t: Throwable) {
+                showLoading(false)
+            }
+
+        })
+    }
+
+    private fun printLog(message: String) {
+        Log.d(TAG, message)
+    }
+
+    private fun showData(data: CustomerResponse) {
+        val results = data.data
+        listCustomerAdapter.setData(results)
+    }
+
+    private fun initRecyclerView() {
+        listCustomerAdapter = ListCustomerAdapter(arrayListOf())
         _binding.recyclerViewCustomer.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             val decoration = DividerItemDecoration(this@ListCustomerActivity, DividerItemDecoration.VERTICAL)
             addItemDecoration(decoration)
-            recyclerViewAdapter = ListCustomerAdapter()
-            adapter = recyclerViewAdapter
-
+            adapter = listCustomerAdapter
         }
     }
-    fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(ListCustomerViewModel::class.java)
-        viewModel.getListCustomerObserverable().observe(this, Observer<CustomerResponse> {
-            if(it == null) {
-                Toast.makeText(this@ListCustomerActivity, "no result found...", Toast.LENGTH_LONG).show()
-            } else {
-                recyclerViewAdapter.listCustomer = it.data.toMutableList()
-                recyclerViewAdapter.notifyDataSetChanged()
-            }
-        })
-        viewModel.getListCustomer()
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
-        if(requestCode == 200) {
-            viewModel.getListCustomer()
+    private fun showLoading(loading: Boolean) {
+        when(loading) {
+            true -> _binding.progressBar.visibility = View.VISIBLE
+            false -> _binding.progressBar.visibility = View.GONE
         }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 
 

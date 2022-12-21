@@ -7,39 +7,33 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.c16.flywithme_admin.R
 import com.c16.flywithme_admin.data.model.list_user.User
+import com.c16.flywithme_admin.data.response.CustomerResponse
 
-class ListCustomerAdapter : RecyclerView.Adapter<ListCustomerAdapter.ViewHolderCustomer>(){
+class ListCustomerAdapter(val results : ArrayList<CustomerResponse.User>)
+    : RecyclerView.Adapter<ListCustomerAdapter.ViewHolderCustomer>(){
 
-    var listCustomer = mutableListOf<User>()
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int): ViewHolderCustomer {
-        val inflater = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_row_list_customer, parent, false)
-        return ViewHolderCustomer(inflater)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCustomer {
+        LayoutInflater.from(parent.context).inflate(R.layout.item_row_list_customer, parent, false).apply {
+            return ViewHolderCustomer(this)
+        }
     }
-
-
-    override fun getItemCount(): Int {
-        return listCustomer.size
-    }
-
 
     override fun onBindViewHolder(holder: ViewHolderCustomer, position: Int) {
-        holder.bind(listCustomer[position])
+        val result = results[position]
+        holder.view.findViewById<TextView>(R.id.tv_idUser).text = result.id
+        holder.view.findViewById<TextView>(R.id.tv_firstName).text = result.firstName
+        holder.view.findViewById<TextView>(R.id.tv_lastName).text = result.lastName
     }
 
-    class ViewHolderCustomer(view: View) : RecyclerView.ViewHolder(view) {
-        val textViewIdUser = view.findViewById<TextView>(R.id.tv_idUser)!!
-        val textViewFirtName = view.findViewById<TextView>(R.id.tv_firstName)
-        val textViewLastName = view.findViewById<TextView>(R.id.tv_lastName)
+    override fun getItemCount(): Int = results.size
 
-        fun bind(data: User) {
-            textViewIdUser.text = data.id
-            textViewFirtName.text = data.firstName
-            textViewLastName.text = data.lastName
-        }
+    class ViewHolderCustomer(val view: View): RecyclerView.ViewHolder(view)
+
+    fun setData(data: List<CustomerResponse.User>) {
+        results.clear()
+        results.addAll(data)
+        notifyDataSetChanged()
     }
 
 
