@@ -2,7 +2,7 @@ package com.c16.flywithme_admin.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.c16.flywithme_admin.data.model.AdminLogin
+import com.c16.flywithme_admin.data.model.login.AdminLogin
 import com.c16.flywithme_admin.data.remote.ApiService
 import com.c16.flywithme_admin.data.request.LoginRequest
 import com.c16.flywithme_admin.result.Result

@@ -1,4 +1,4 @@
-package com.c16.flywithme_admin.presentation.login
+package com.c16.flywithme_admin.presentation.ui.login
 
 import androidx.lifecycle.ViewModel
 import com.c16.flywithme_admin.data.use_case.AdminUseCase

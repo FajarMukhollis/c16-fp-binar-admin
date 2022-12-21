@@ -1,4 +1,4 @@
-package com.c16.flywithme_admin.presentation.login
+package com.c16.flywithme_admin.presentation.ui.login
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.c16.flywithme_admin.R
 import com.c16.flywithme_admin.databinding.ActivityLoginBinding
 import com.c16.flywithme_admin.databinding.DialogLoadingBinding
-import com.c16.flywithme_admin.presentation.home.MainActivity
+import com.c16.flywithme_admin.presentation.ui.home.MainActivity
+import com.c16.flywithme_admin.presentation.ui.listcustomer.ListCustomerActivity
 import com.c16.flywithme_admin.viewmodel.ViewModelFactory
 import com.c16.flywithme_admin.result.Result
 

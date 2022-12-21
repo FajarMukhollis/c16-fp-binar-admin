@@ -1,6 +1,5 @@
 package com.c16.flywithme_admin.data.remote
 
-import com.c16.flywithme_admin.data.request.CustomerRequest
 import com.c16.flywithme_admin.data.request.LoginRequest
 import com.c16.flywithme_admin.data.response.CustomerResponse
 import com.c16.flywithme_admin.data.response.LoginResponse
@@ -14,9 +13,9 @@ interface ApiService {
         @Body loginRequest: LoginRequest
     ) : Response<LoginResponse>
 
-    //GET DATA CUSTOMER
+    //GET LIST DATA CUSTOMER
     @GET("api/users/findAll")
-    suspend fun listCustomer(
-        @Body CustomerRequest: CustomerRequest
-    ) : Call<List<CustomerResponse>>
+//    @Headers("accept: application/json", "content-type: application/json")
+    fun getlistCustomer(): Call<CustomerResponse>
+
 }

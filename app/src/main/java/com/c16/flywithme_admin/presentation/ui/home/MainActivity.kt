@@ -1,8 +1,10 @@
-package com.c16.flywithme_admin.presentation.home
+package com.c16.flywithme_admin.presentation.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.c16.flywithme_admin.databinding.ActivityMainBinding
+import com.c16.flywithme_admin.presentation.ui.listcustomer.ListCustomerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(_binding.root)
 
         _binding.btnDataCustomer.setOnClickListener {
-
+            val intent = Intent(this, ListCustomerActivity::class.java)
+            startActivity(intent)
         }
 
         _binding.btnDataFlight.setOnClickListener {

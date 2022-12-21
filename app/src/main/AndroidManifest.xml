@@ -16,21 +16,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ListCustomerActivity"
+            android:name=".presentation.ui.listcustomer.ListCustomerActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name=".presentation.ui.login.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.start.SplashScreenActivity"
+            android:name=".presentation.ui.start.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +43,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.home.MainActivity"
+            android:name=".presentation.ui.home.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
