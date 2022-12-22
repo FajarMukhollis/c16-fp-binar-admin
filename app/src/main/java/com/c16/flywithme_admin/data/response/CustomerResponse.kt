@@ -17,5 +17,15 @@ data class CustomerResponse(
         val firstName: String,
         @SerializedName("lastName")
         val lastName: String,
+        @SerializedName("email")
+        val email: String,
+        @SerializedName("password")
+        val password: String,
+        @SerializedName("NIK")
+        val nik: String,
+        @SerializedName("address")
+        val address: String?,
+        @SerializedName("phoneNumber")
+        val phoneNumber: String?
     )
 }

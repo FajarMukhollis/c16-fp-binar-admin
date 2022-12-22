@@ -24,6 +24,12 @@ class ListCustomerAdapter(val results : ArrayList<CustomerResponse.User>)
         holder.view.findViewById<TextView>(R.id.tv_idUser).text = result.id
         holder.view.findViewById<TextView>(R.id.tv_firstName).text = result.firstName
         holder.view.findViewById<TextView>(R.id.tv_lastName).text = result.lastName
+        holder.view.findViewById<TextView>(R.id.tv_email).text = result.email
+        holder.view.findViewById<TextView>(R.id.tv_password).text = result.password
+        holder.view.findViewById<TextView>(R.id.tv_nik).text = result.nik
+        holder.view.findViewById<TextView>(R.id.tv_address).text = result.address
+        holder.view.findViewById<TextView>(R.id.tv_phone).text = result.phoneNumber
+
     }
 
     override fun getItemCount(): Int = results.size
