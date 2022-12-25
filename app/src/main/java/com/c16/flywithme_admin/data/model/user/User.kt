@@ -1,4 +1,4 @@
-package com.c16.flywithme_admin.data.model.list_user
+package com.c16.flywithme_admin.data.model.user
 
 import com.google.gson.annotations.SerializedName
 

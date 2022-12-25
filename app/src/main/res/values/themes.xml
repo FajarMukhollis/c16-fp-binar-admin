@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Flywithme_admin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/blue_background</item>
+        <item name="colorPrimaryVariant">@color/blue_background</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -53,5 +53,9 @@
             @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox
         </item>
         <item name="endIconMode">dropdown_menu</item>
+    </style>
+
+    <style name="backgroundColor">
+        <item name="android:background">@color/blue_background</item>
     </style>
 </resources>

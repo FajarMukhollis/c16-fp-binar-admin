@@ -9,6 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import com.c16.flywithme_admin.databinding.ActivitySplashScreenBinding
+import com.c16.flywithme_admin.presentation.ui.flights.FlightsActivity
 import com.c16.flywithme_admin.presentation.ui.listcustomer.ListCustomerActivity
 import com.c16.flywithme_admin.presentation.ui.login.LoginActivity
 
@@ -22,7 +23,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(_binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, ListCustomerActivity::class.java)
+            val intent = Intent(this, FlightsActivity::class.java)
             startActivity(intent)
             finish()
         }, 2500L)

@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.c16.flywithme_admin.R
-import com.c16.flywithme_admin.data.model.list_user.User
 import com.c16.flywithme_admin.data.response.CustomerResponse
 
 class ListCustomerAdapter(val results : ArrayList<CustomerResponse.User>)
