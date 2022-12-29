@@ -16,7 +16,7 @@ interface ApiService {
     @POST("api/login/admin")
     suspend fun loginAdmin(
         @Body loginRequest: LoginRequest
-    ): Response<LoginResponse>
+    ) : Response<LoginResponse>
 
     //GET LIST DATA CUSTOMER
     @GET("api/users/findAll")
