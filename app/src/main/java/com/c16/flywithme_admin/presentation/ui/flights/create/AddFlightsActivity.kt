@@ -27,7 +27,6 @@ class AddFlightsActivity : AppCompatActivity() {
 
     private fun initViewModel() {
         addFlightsViewModel = ViewModelProvider(this@AddFlightsActivity).get(AddFlightsViewModel::class.java)
-
     }
 
 
@@ -56,9 +55,9 @@ class AddFlightsActivity : AppCompatActivity() {
     private fun createFlightsObservable() {
         addFlightsViewModel.getCreateNewDataObserver().observe(this, Observer <AddFlightsResponse?>{
             if(it == null) {
-                Toast.makeText(this@AddFlightsActivity, "Failed to create/update new user...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AddFlightsActivity, "Failed to create Tiket...", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this@AddFlightsActivity, "Successfully created/updated user...", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@AddFlightsActivity, "Successfully created Tiket...", Toast.LENGTH_LONG).show()
                 finish()
             }
         })

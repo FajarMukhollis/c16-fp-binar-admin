@@ -35,12 +35,13 @@ class DetailActivity : AppCompatActivity() {
     private fun deleteFlight(flightId: Int) {
         detailViewModel.getDeleteFlightDataObserver().observe(this, Observer<DeleteFlightsResponse?> {
             if(it != null){
-                finish()
                 Toast.makeText(this@DetailActivity, "Successfully deleted user...", Toast.LENGTH_LONG).show()
+                finish()
             } else {
                 Toast.makeText(this@DetailActivity, "Failed to delete user...", Toast.LENGTH_LONG).show()
             }
         })
+        detailViewModel.deleteFlights(flightId)
 
     }
 
