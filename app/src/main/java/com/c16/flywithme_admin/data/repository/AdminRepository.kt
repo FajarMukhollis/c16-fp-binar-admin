@@ -19,7 +19,6 @@ class AdminRepository (
 //            if (response.body()?.status == false) {
             if (!response.body()?.status.toBoolean()) {
                 val data = AdminLogin(
-                    response.body()?.`data`?.id!!,
                     response.body()?.`data`?.email!!,
                     response.body()?.`data`?.password!!,
                 )
