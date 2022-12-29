@@ -5,7 +5,7 @@ import com.c16.flywithme_admin.data.model.DataAdmin
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
-    @SerializedName("data")
+    @SerializedName("dataAdd")
     val `data`: DataAdmin,
     @SerializedName("message")
     val message: String,

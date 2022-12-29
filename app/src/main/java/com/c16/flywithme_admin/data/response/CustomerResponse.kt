@@ -3,7 +3,7 @@ package com.c16.flywithme_admin.data.response
 import com.google.gson.annotations.SerializedName
 
 data class CustomerResponse(
-    @SerializedName("data")
+    @SerializedName("dataAdd")
     val `data`: ArrayList<User>,
     @SerializedName("message")
     val message: String,

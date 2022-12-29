@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/updateFlightsFragment">
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.c16.flywithme_admin.presentation.ui.flights.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_updateFlightsFragment"
+            app:destination="@id/updateFlightsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFlightsFragment"
+        android:name="com.c16.flywithme_admin.presentation.ui.flights.UpdateFlightsFragment"
+        android:label="fragment_update_flights"
+        tools:layout="@layout/fragment_update_flights" />
+</navigation>

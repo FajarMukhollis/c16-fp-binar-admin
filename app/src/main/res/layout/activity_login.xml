@@ -111,9 +111,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/btn_style"
                 android:clickable="false"
                 android:text="Log In"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/til_password" />

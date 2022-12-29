@@ -2,10 +2,10 @@ package com.c16.flywithme_admin.presentation.ui.login
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -14,9 +14,8 @@ import com.c16.flywithme_admin.R
 import com.c16.flywithme_admin.databinding.ActivityLoginBinding
 import com.c16.flywithme_admin.databinding.DialogLoadingBinding
 import com.c16.flywithme_admin.presentation.ui.home.MainActivity
-import com.c16.flywithme_admin.presentation.ui.listcustomer.ListCustomerActivity
-import com.c16.flywithme_admin.viewmodel.ViewModelFactory
 import com.c16.flywithme_admin.result.Result
+import com.c16.flywithme_admin.viewmodel.ViewModelFactory
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -69,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
                         is Result.Loading -> loadingDialog.show()
                         is Result.Success -> {
                             loadingDialog.dismiss()
-                            //viewModel.saveAdmin(result.data)
+                            //viewModel.saveAdmin(result.dataAdd)
                             toMain()
                         }
                         is Result.Error -> {
