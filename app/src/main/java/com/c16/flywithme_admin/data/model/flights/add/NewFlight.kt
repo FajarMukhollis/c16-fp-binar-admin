@@ -28,14 +28,10 @@ data class NewFlight(
     val arrivalTime: String,
     @SerializedName("capasity")
     val capasity: String,
-    @SerializedName("economyClassPrice")
-    val economyClassPrice: String,
-    @SerializedName("businessClassPrice")
-    val businessClassPrice: String,
-    @SerializedName("firstClassPrice")
-    val firstClassPrice: String,
-    @SerializedName("typeOfFlight")
-    val typeOfFlight: String
+    @SerializedName("typeOfClass")
+    val typeOfClass: String,
+    @SerializedName("ClassPrice")
+    val classPrice: Int
 //    @SerializedName("createdAt")
 //    val createdAt: String,
 //    @SerializedName("updatedAt")

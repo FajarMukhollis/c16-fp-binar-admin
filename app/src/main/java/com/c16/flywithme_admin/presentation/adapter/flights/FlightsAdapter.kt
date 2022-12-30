@@ -34,6 +34,7 @@ class FlightsAdapter(private val clickListener: OnItemClickListener) : RecyclerV
         val tvPrice = view.findViewById<TextView>(R.id.tv_price)
         val tvFlightNumber = view.findViewById<TextView>(R.id.tv_flightNumber)
         val tvTypeFlight = view.findViewById<TextView>(R.id.tv_typeFlight)
+        val tvTypeOfClass = view.findViewById<TextView>(R.id.tv_typeOfClass)
         val tvFrom = view.findViewById<TextView>(R.id.tv_from)
         val tvTo = view.findViewById<TextView>(R.id.tv_to)
 
@@ -43,6 +44,7 @@ class FlightsAdapter(private val clickListener: OnItemClickListener) : RecyclerV
             tvPrice.text = flight.classPrice.toString()
             tvFlightNumber.text = flight.flightNumber
             tvTypeFlight.text = flight.typeOfFlight
+            tvTypeOfClass.text = flight.typeOfClass
             tvFrom.text = flight.from
             tvTo.text = flight.to
         }

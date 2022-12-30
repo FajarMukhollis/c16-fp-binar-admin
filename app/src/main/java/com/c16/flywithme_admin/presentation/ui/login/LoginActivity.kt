@@ -22,7 +22,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var _binding: ActivityLoginBinding
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setViewModel() {
         val factory = ViewModelFactory.getInstance(this, dataStore)
-        viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
+        loginViewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
     }
 
     private fun loginAction() {
@@ -63,12 +63,15 @@ class LoginActivity : AppCompatActivity() {
                 }
                 val loadingDialog = loadingDialogBuilder.create()
 
-                viewModel.loginAdmin(email, password).observe(this) { result ->
+                loginViewModel.loginAdmin(email, password).observe(this) { result ->
                     when (result) {
                         is Result.Loading -> loadingDialog.show()
                         is Result.Success -> {
                             loadingDialog.dismiss()
-                            viewModel.saveAdmin(result.data)
+                            loginViewModel.saveAdmin(result.data)
+                            loginViewModel.getToken().observe(this) { token ->
+                                println("token: $token")
+                            }
                             toMain()
                         }
                         is Result.Error -> {

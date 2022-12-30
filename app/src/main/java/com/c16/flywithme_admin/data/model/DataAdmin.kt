@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class DataAdmin(
     @SerializedName("id")
-    val id: String,
+    val id: Int,
     @SerializedName("email")
     val email: String,
     @SerializedName("password")

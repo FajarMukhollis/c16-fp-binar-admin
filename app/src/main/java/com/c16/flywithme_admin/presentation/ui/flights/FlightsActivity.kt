@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.c16.flywithme_admin.data.model.flights.DataFlights
-import com.c16.flywithme_admin.data.response.flights.FlightsResponse
 import com.c16.flywithme_admin.databinding.ActivityFlightsBinding
 import com.c16.flywithme_admin.presentation.adapter.flights.FlightsAdapter
 import com.c16.flywithme_admin.presentation.ui.flights.create.AddFlightsActivity
@@ -46,8 +44,7 @@ class FlightsActivity : AppCompatActivity(), FlightsAdapter.OnItemClickListener 
     private fun initViewModel() {
         showLoading(true)
         flightsViewModel = ViewModelProvider(this).get(FlightsViewModel::class.java)
-        flightsViewModel.getFlightsObserver().observe(this, Observer<FlightsResponse> {
-
+        flightsViewModel.getFlightsObserver().observe(this) {
             if (it != null) {
                 showLoading(false)
                 flightsAdapter.flightList = it.data.toMutableList()
@@ -57,7 +54,7 @@ class FlightsActivity : AppCompatActivity(), FlightsAdapter.OnItemClickListener 
                 showLoading(false)
                 Toast.makeText(this@FlightsActivity, "no result found...", Toast.LENGTH_LONG).show()
             }
-        })
+        }
         flightsViewModel.getFlights()
     }
 

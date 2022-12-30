@@ -2,12 +2,15 @@ package com.c16.flywithme_admin.presentation.ui.flights.create
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.c16.flywithme_admin.data.remote.ApiConfig
 import com.c16.flywithme_admin.data.request.AddFlightsRequest
 import com.c16.flywithme_admin.data.response.flights.add.AddFlightsResponse
+import com.c16.flywithme_admin.preference.AdminPrefrence
 
 class AddFlightsViewModel : ViewModel() {
     var createNewData: MutableLiveData<AddFlightsResponse> = MutableLiveData()
+
 
     fun getCreateNewDataObserver(): MutableLiveData<AddFlightsResponse> {
         return createNewData

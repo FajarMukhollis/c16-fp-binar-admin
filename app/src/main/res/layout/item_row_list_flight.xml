@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
@@ -14,99 +13,118 @@
 
         <TextView
             android:id="@+id/tv_depature_date"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="2022 08 10"
-            style="@style/TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_depature_time"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="11:50:30"
-            style="@style/TextView"
             app:layout_constraintStart_toEndOf="@+id/tv_depature_date"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/IDR"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="IDR"
-            style="@style/TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_depature_date" />
 
         <TextView
             android:id="@+id/tv_price"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:text="1000000"
-            style="@style/TextView"
             app:layout_constraintStart_toEndOf="@+id/IDR"
             app:layout_constraintTop_toBottomOf="@+id/tv_depature_date" />
 
         <TextView
             android:id="@+id/tv_flightNumber"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="JT 0534"
-            style="@style/TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IDR" />
 
         <TextView
+            android:id="@+id/text_viwe_from"
+            style="@style/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_flightNumber" />
+
+        <TextView
             android:id="@+id/tv_typeFlight"
-            android:layout_width="0dp"
+            style="@style/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:text="one way"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_depature_time"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_typeOfClass"
+            style="@style/TextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="80dp"
-            android:text="one way"
-            style="@style/TextView"
-            android:gravity="center_horizontal"
-
-            app:layout_constraintStart_toEndOf="@+id/tv_price"
-            app:layout_constraintTop_toBottomOf="@+id/tv_depature_time" />
+            android:text="Type Of Class"
+            app:layout_constraintEnd_toEndOf="@+id/tv_typeFlight"
+            app:layout_constraintStart_toStartOf="@+id/tv_typeFlight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_typeFlight" />
 
         <TextView
             android:id="@+id/tv_from"
-            android:layout_width="0dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content"
-            android:text="Jakarta"
             style="@style/TextView"
-            android:layout_marginStart="50dp"
-            app:layout_constraintStart_toEndOf="@+id/tv_flightNumber"
-            app:layout_constraintTop_toBottomOf="@+id/tv_typeFlight" />
-
-        <ImageView
-            android:id="@+id/ic_to"
-            android:contentDescription="@string/this_image"
             android:layout_width="0dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="30dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_to"
-            app:layout_constraintStart_toEndOf="@+id/tv_from"
-            app:layout_constraintTop_toBottomOf="@+id/tv_typeFlight" />
+            android:layout_marginTop="5dp"
+            android:text="Jakarta"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_viwe_from" />
+
+        <TextView
+            android:id="@+id/text_viwe_to"
+            style="@style/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="To :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_from" />
+
 
         <TextView
             android:id="@+id/tv_to"
+            style="@style/TextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="30dp"
             android:text="Solo"
-            style="@style/TextView"
-            app:layout_constraintStart_toEndOf="@+id/ic_to"
-            app:layout_constraintTop_toBottomOf="@+id/tv_typeFlight" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_viwe_to" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

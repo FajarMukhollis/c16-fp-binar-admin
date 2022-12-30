@@ -1,6 +1,6 @@
 package com.c16.flywithme_admin.data.request
 
-data class AddFlightsRequest(
+data class UpdateFlightsResquest(
     var airPortId: String,
     var destinationId: String,
     var flightNumber: String,

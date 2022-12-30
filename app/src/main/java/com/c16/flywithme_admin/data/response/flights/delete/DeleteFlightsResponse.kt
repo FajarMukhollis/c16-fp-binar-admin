@@ -1,4 +1,4 @@
-package com.c16.flywithme_admin.data.response.delete
+package com.c16.flywithme_admin.data.response.flights.delete
 
 
 import com.google.gson.annotations.SerializedName

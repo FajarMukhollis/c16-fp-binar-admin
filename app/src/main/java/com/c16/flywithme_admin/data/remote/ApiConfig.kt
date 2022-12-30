@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
     private const val BASE_URL = "http://www.flywithme-api.me/"
+//    private val authToken: String? = null
 
     fun getApiService(): ApiService {
 
@@ -19,6 +20,11 @@ object ApiConfig {
 
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+//            .addInterceptor { chain ->
+//                chain.proceed(chain.request().newBuilder().also {
+//                    it.addHeader("Authorization", "Bearer $authToken")
+//                }.build())
+//            }
             .build()
 
         val retrofit = Retrofit.Builder()

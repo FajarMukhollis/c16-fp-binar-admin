@@ -8,8 +8,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.c16.flywithme_admin.data.use_case.AdminUseCase
 import com.c16.flywithme_admin.di.Injection
 import com.c16.flywithme_admin.preference.AdminPrefrence
+import com.c16.flywithme_admin.presentation.ui.flights.detail.DetailViewModel
+import com.c16.flywithme_admin.presentation.ui.flights.update.UpdateViewModel
+import com.c16.flywithme_admin.presentation.ui.home.MainViewModel
 import com.c16.flywithme_admin.presentation.ui.login.LoginViewModel
-import com.c16.flywithme_admin.presentation.ui.profile.ProfileViewModel
 import com.c16.flywithme_admin.presentation.ui.start.SplashViewModel
 
 class ViewModelFactory (
@@ -24,8 +26,14 @@ class ViewModelFactory (
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(
                 adminUseCase, pref
             ) as T
-            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> ProfileViewModel(
-                adminUseCase, pref
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(
+                pref
+            ) as T
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> DetailViewModel(
+                pref
+            ) as T
+            modelClass.isAssignableFrom(UpdateViewModel::class.java) -> UpdateViewModel(
+                pref
             ) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

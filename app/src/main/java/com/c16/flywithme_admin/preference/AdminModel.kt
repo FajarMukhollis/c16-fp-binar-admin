@@ -1,8 +1,9 @@
 package com.c16.flywithme_admin.preference
 
 data class AdminModel (
-    val localId: String,
+    val adminId: Int,
     val email: String,
-    val password: String,
-    val isLogin: Boolean
+    val isLogin: Boolean,
+    val token: String,
+
 )

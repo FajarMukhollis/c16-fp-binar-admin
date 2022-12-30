@@ -10,9 +10,9 @@ import retrofit2.Response
 
 class FlightsViewModel : ViewModel() {
 
-    var listFlights: MutableLiveData<FlightsResponse> = MutableLiveData()
+    var listFlights: MutableLiveData<FlightsResponse?> = MutableLiveData()
 
-    fun getFlightsObserver(): MutableLiveData<FlightsResponse> {
+    fun getFlightsObserver(): MutableLiveData<FlightsResponse?> {
         return listFlights
     }
 
