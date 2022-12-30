@@ -7,15 +7,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.c16.flywithme_admin.data.use_case.AdminUseCase
 import com.c16.flywithme_admin.di.Injection
+import com.c16.flywithme_admin.preference.AdminPrefrence
 import com.c16.flywithme_admin.presentation.ui.login.LoginViewModel
+import com.c16.flywithme_admin.presentation.ui.profile.ProfileViewModel
+import com.c16.flywithme_admin.presentation.ui.start.SplashViewModel
 
 class ViewModelFactory (
-    private val adminUseCase: AdminUseCase
+    private val adminUseCase: AdminUseCase,
+    private val pref: AdminPrefrence
         ) : ViewModelProvider.NewInstanceFactory(){
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
+            modelClass.isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel(
+                pref
+            ) as T
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> LoginViewModel(
-                adminUseCase//, pref
+                adminUseCase, pref
+            ) as T
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> ProfileViewModel(
+                adminUseCase, pref
             ) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -29,7 +39,7 @@ class ViewModelFactory (
             instance ?: synchronized(this) {
                 instance ?: ViewModelFactory(
                     Injection.provideUserUseCase(),
-                    //UserPreference.getInstance(pref),
+                    AdminPrefrence.getInstance(pref)
                 )
             }.also { instance = it }
     }

@@ -21,6 +21,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(_binding.root)
 
         val flight_id = intent.getIntExtra("id", 0)
+        val getToken = intent.getStringExtra("token")
 
         initViewModel()
         if(flight_id != null){
@@ -28,20 +29,23 @@ class DetailActivity : AppCompatActivity() {
         }
 
         _binding.btnDelete.setOnClickListener{
-            deleteFlight(flight_id)
+            if (getToken != null) {
+                deleteFlight(flight_id, getToken)
+            }
         }
     }
 
-    private fun deleteFlight(flightId: Int) {
+    private fun deleteFlight(flightId: Int, token: String) {
         detailViewModel.getDeleteFlightDataObserver().observe(this, Observer<DeleteFlightsResponse?> {
             if(it != null){
+                DeleteFlightsResponse(it.message, it.status)
                 Toast.makeText(this@DetailActivity, "Successfully deleted user...", Toast.LENGTH_LONG).show()
                 finish()
             } else {
                 Toast.makeText(this@DetailActivity, "Failed to delete user...", Toast.LENGTH_LONG).show()
             }
         })
-        detailViewModel.deleteFlights(flightId)
+        detailViewModel.deleteFlights(flightId, token)
 
     }
 

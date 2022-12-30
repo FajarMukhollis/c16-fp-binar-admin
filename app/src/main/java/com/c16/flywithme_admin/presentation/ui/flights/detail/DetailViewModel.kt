@@ -44,7 +44,7 @@ class DetailViewModel : ViewModel() {
 
     }
 
-    fun deleteFlights(id: Int?) {
+    fun deleteFlights(id: Int?, token: String) {
         val retro = ApiConfig.getApiService().deleteFlights(id!!)
         retro.enqueue(object : Callback<DeleteFlightsResponse?> {
             override fun onResponse(

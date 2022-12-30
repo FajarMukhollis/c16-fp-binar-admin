@@ -1,11 +1,19 @@
 package com.c16.flywithme_admin.presentation.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import com.c16.flywithme_admin.databinding.ActivityMainBinding
 import com.c16.flywithme_admin.presentation.ui.flights.FlightsActivity
 import com.c16.flywithme_admin.presentation.ui.listcustomer.ListCustomerActivity
+import com.c16.flywithme_admin.presentation.ui.profile.ProfileActivity
+
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(moveListCustomer)
         }
 
+
         _binding.btnDataFlight.setOnClickListener {
             val moveListFlight = Intent(this, FlightsActivity::class.java)
             startActivity(moveListFlight)
@@ -28,6 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         _binding.btnHistoryPayment.setOnClickListener {
 
+        }
+
+        _binding.btnProfile.setOnClickListener {
+            val moveProfile = Intent(this, ProfileActivity::class.java)
+            startActivity(moveProfile)
         }
     }
 }

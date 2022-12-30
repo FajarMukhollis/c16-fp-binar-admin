@@ -68,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
                         is Result.Loading -> loadingDialog.show()
                         is Result.Success -> {
                             loadingDialog.dismiss()
-                            //viewModel.saveAdmin(result.dataAdd)
+                            viewModel.saveAdmin(result.data)
                             toMain()
                         }
                         is Result.Error -> {
