@@ -11,7 +11,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.c16.flywithme_admin.data.model.login.AdminLogin
 import com.c16.flywithme_admin.databinding.ActivitySplashScreenBinding
 import com.c16.flywithme_admin.presentation.ui.home.MainActivity
 import com.c16.flywithme_admin.presentation.ui.login.LoginActivity
@@ -24,7 +23,6 @@ class SplashScreenActivity : AppCompatActivity() {
     private lateinit var _binding: ActivitySplashScreenBinding
     private lateinit var splashViewModel: SplashViewModel
 
-    private lateinit var admin: AdminLogin
     private var isLogin = false
     private var splashTime = 2500L
 
@@ -59,10 +57,8 @@ class SplashScreenActivity : AppCompatActivity() {
     private fun setViewModel() {
         val factory = ViewModelFactory.getInstance(this, dataStore)
         splashViewModel = ViewModelProvider(this, factory)[SplashViewModel::class.java]
-        splashViewModel.getAdminData().observe(this) {
-            isLogin = it.isLogin
-            admin = AdminLogin(it.localId, it.email, it.password)
-
+        splashViewModel.getIsLogin().observe(this) {
+            isLogin = it
         }
     }
 }
