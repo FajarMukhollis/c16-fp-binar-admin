@@ -6,4 +6,4 @@ This repository is a development of the fly with me application specifically for
 https://github.com/vanzeven/c16-fp-binar
 
 if you want to try one without any bugs, please use the following link:
-https://github.com/FajarMukhollis/c16-fp-binar.git
+<br> https://github.com/FajarMukhollis/c16-fp-binar.git </br>
